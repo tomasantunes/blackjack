@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071f1a" />
+    <meta name="description" content="Play a polished single-player game of Blackjack against the dealer." />
+    <title>Blackjack — The Evergreen Room</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a3027'/%3E%3Cpath d='M32 8 13 31c-7 10 4 20 14 13-2 7-4 9-8 12h26c-4-3-6-5-8-12 10 7 21-3 14-13L32 8Z' fill='%23e9c46a'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand" aria-label="The Evergreen Room Blackjack">
+          <span class="brand-mark" aria-hidden="true">♠</span>
+          <div>
+            <p class="eyebrow">The Evergreen Room</p>
+            <h1>Blackjack</h1>
+          </div>
+        </div>
+        <div class="bankroll" aria-label="Current balance">
+          <span>Balance</span>
+          <strong id="balance">$1,000</strong>
+        </div>
+      </header>
+
+      <section class="table-wrap" aria-label="Blackjack table">
+        <div class="table-glow" aria-hidden="true"></div>
+        <div id="card-table">
+          <img class="preload" src="libs/cardsjs/img/cards.png" alt="" />
+
+          <div class="hand-label dealer-label">
+            <span>Dealer</span>
+            <strong id="dealer-score">—</strong>
+          </div>
+          <div class="hand-label player-label">
+            <span>Your hand</span>
+            <strong id="player-score">—</strong>
+          </div>
+
+          <div class="table-message" id="table-message" aria-live="polite">
+            <span class="message-kicker">Table open</span>
+            <strong>Place your bet</strong>
+          </div>
+
+          <div class="rules-mark" aria-hidden="true">
+            <span>BLACKJACK PAYS 3 TO 2</span>
+            <i>Dealer stands on all 17s</i>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-dock" aria-label="Game controls">
+        <div class="bet-panel" id="bet-panel">
+          <div class="bet-summary">
+            <span>Wager</span>
+            <strong id="bet-amount">$50</strong>
+          </div>
+          <div class="chips" aria-label="Choose wager">
+            <button class="chip chip-25" data-bet="25" aria-label="Bet 25 dollars"><span>$25</span></button>
+            <button class="chip chip-50 selected" data-bet="50" aria-label="Bet 50 dollars"><span>$50</span></button>
+            <button class="chip chip-100" data-bet="100" aria-label="Bet 100 dollars"><span>$100</span></button>
+            <button class="chip chip-250" data-bet="250" aria-label="Bet 250 dollars"><span>$250</span></button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="action secondary" id="hit" disabled>Hit</button>
+          <button class="action secondary" id="stand" disabled>Stand</button>
+          <button class="action secondary" id="double" disabled>Double</button>
+          <button class="action primary" id="deal">Deal cards</button>
+        </div>
+      </section>
+
+      <footer>
+        <span>Fictitious money only</span>
+        <button id="reset-bankroll" class="text-button">Reset bankroll</button>
+      </footer>
+    </main>
+
+    <script src="libs/cardsjs/jquery-1.7.min.js"></script>
+    <script src="libs/cardsjs/deckType.js"></script>
+    <script src="libs/cardsjs/cards.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
